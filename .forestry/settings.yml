@@ -10,6 +10,35 @@ sections:
 - type: jekyll-posts
   label: Posts
   create: all
+
+- type: heading
+  label: Content
+
+- type: directory
+  path: content/posts
+  label: Blog Posts
+  create: documents
+  match: "**/*"
+  new_doc_ext: md
+  templates:
+  - blog-post
+
+# - type: document
+#   path: content/data/authors.yaml
+#   label: Author List
+
+# - type: document
+#   path: content/data/info.json
+#   label: Info Page
+
+# - type: heading
+#   label: General Config
+
+# - type: document
+#   path: config.json
+#   label: Site Info
+  
+  
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
@@ -20,7 +49,7 @@ build:
   - JEKYLL_ENV=staging
   preview_output_directory: _site
   install_dependencies_command: bundle install --path vendor/bundle
-  preview_docker_image: forestryio/ruby:2.6
+  preview_docker_image: forestryio/ruby:2.7
   mount_path: "/srv"
   working_dir: "/srv"
   instant_preview_command: bundle exec jekyll serve --drafts --unpublished --future
